@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.actividad_12_mapas.Data_base.AppContainer
 import com.example.actividad_12_mapas.Data_base.Direccion
+import com.example.actividad_12_mapas.Nav.AppNavigation
 import com.example.actividad_12_mapas.ui.theme.Actividad_12_MapasTheme
 import com.example.actividad_12_mapas.ui.theme.DirrecionesViewModel
 
@@ -22,8 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Actividad_12_MapasTheme {
-                AppContainer(this)
-
+               AppNavigation(appContainer = AppContainer(this))
             }
         }
     }
