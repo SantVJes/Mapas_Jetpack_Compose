@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface  DirrecionDao {
 
     // Insertar una nueva Dirreciones
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     suspend fun  insertDirrecion( direccion: Direccion)
 
 
