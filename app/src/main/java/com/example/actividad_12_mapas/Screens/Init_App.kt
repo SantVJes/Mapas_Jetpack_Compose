@@ -13,16 +13,21 @@ import androidx.biometric.BiometricPrompt
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -51,6 +56,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 import com.example.actividad_12_mapas.Data_base.AppContainer
 import kotlinx.coroutines.delay
@@ -79,7 +85,7 @@ fun Body_Inicio(appContainer: AppContainer, navController: NavHostController) {
     val context = LocalContext.current
     val activity = context as FragmentActivity
     val executor: Executor = ContextCompat.getMainExecutor(context)
-    val biometricManager = BiometricManager.from(context)
+
 
     val promtInfo = BiometricPrompt.PromptInfo.Builder()
         .setTitle("title")
@@ -139,11 +145,30 @@ fun Body_Inicio(appContainer: AppContainer, navController: NavHostController) {
         Spacer(modifier = Modifier.height(16.dp))
 
 
+            Button(
+                onClick ={biometricPrompt.authenticate(promtInfo)},
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF4CAF50),
+                    contentColor = Color.White
+                ),
+                contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp) // Add padding
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Lock,
+                        contentDescription = "Fingerprint Icon",
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Iniciar con huella")
+                }
+            }
+
+
     }
-    LaunchedEffect(Unit){
-        delay(500)
-        biometricPrompt.authenticate(promtInfo)
-    }
+
 }
 
 
@@ -151,8 +176,10 @@ fun Body_Inicio(appContainer: AppContainer, navController: NavHostController) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview_Inicio() {
+    val appContainer = AppContainer(LocalContext.current)
+    val navController = rememberNavController()
+    Inicio_App(navController, appContainer)
 
-    Inicio_App(navController = NavHostController(LocalContext.current), appContainer = AppContainer(LocalContext.current))
 
 }
 
