@@ -48,6 +48,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.biometric:biometric:1.4.0-alpha03")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
