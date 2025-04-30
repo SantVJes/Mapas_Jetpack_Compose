@@ -5,6 +5,7 @@ package com.example.actividad_12_mapas.Nav
 object Directorio {
 
     val inicioApp = "Init_App"
+    val menuApp = "Main_App"
 
 
 }
