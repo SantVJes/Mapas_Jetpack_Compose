@@ -6,6 +6,8 @@ object Directorio {
 
     val inicioApp = "Init_App"
     val menuApp = "Main_App"
+    val registroApp = "register_screen"
+    val mapApp = "map_screen"
 
 
 }

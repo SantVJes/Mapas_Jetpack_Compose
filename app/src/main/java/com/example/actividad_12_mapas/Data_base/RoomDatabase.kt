@@ -4,6 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Database(entities = [Direccion::class], version = 1, exportSchema = false)
 abstract class DirreccionDatabase : RoomDatabase() {
@@ -20,8 +24,59 @@ abstract class DirreccionDatabase : RoomDatabase() {
                     DirreccionDatabase::class.java,
                     "Dirrecion_database"
                 )
+                    .addCallback(DatabaseCallback())
                     .build()
                     .also { instance = it }
+            }
+        }
+
+    }
+    private class DatabaseCallback : RoomDatabase.Callback() {
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            super.onCreate(db)
+            CoroutineScope(Dispatchers.IO).launch {
+                val dao = instance?.direccionDao() // Corrected to direccionDao()
+                // Guadalajara, Jalisco, Mexico
+                dao?.insertDirrecion(
+                    Direccion(
+                        direccion = "uno",
+                        tipo = "Negocio",
+                        latitud = 20.6736,
+                        longitud = -103.344
+                    )
+                )
+                dao?.insertDirrecion(
+                    Direccion(
+                        direccion = "dos",
+                        tipo = "Negocio",
+                        latitud = 20.6736,
+                        longitud = -103.344
+                    )
+                )
+                dao?.insertDirrecion(
+                    Direccion(
+                        direccion = "Avenida Vallarta 1250, Americana, Guadalajara",
+                        tipo = "Negocio",
+                        latitud = 20.6736,
+                        longitud = -103.344
+                    )
+                )
+                dao?.insertDirrecion(
+                    Direccion(
+                        direccion = "Calle Morelos 100, Centro, Guadalajara",
+                        tipo = "Casa residencial",
+                        latitud = 20.6736,
+                        longitud = -103.344
+                    )
+                )
+                dao?.insertDirrecion(
+                    Direccion(
+                        direccion = "Calle López Cotilla 1000, Americana, Guadalajara",
+                        tipo = "Casa residencial",
+                        latitud = 20.6736,
+                        longitud = -103.344
+                    )
+                )
             }
         }
     }
