@@ -41,31 +41,31 @@ abstract class DirreccionDatabase : RoomDatabase() {
                     Direccion(
                         direccion = "uno",
                         tipo = "Negocio",
-                        latitud = 20.6736,
-                        longitud = -103.344
+                        latitud = 21.6736,
+                        longitud = -104.344
                     )
                 )
                 dao?.insertDirrecion(
                     Direccion(
                         direccion = "dos",
                         tipo = "Negocio",
-                        latitud = 20.6736,
-                        longitud = -103.344
+                        latitud = 21.6736,
+                        longitud = -105.344
                     )
                 )
                 dao?.insertDirrecion(
                     Direccion(
                         direccion = "Avenida Vallarta 1250, Americana, Guadalajara",
                         tipo = "Negocio",
-                        latitud = 20.6736,
-                        longitud = -103.344
+                        latitud = 24.6736,
+                        longitud = -108.344
                     )
                 )
                 dao?.insertDirrecion(
                     Direccion(
                         direccion = "Calle Morelos 100, Centro, Guadalajara",
                         tipo = "Casa residencial",
-                        latitud = 20.6736,
+                        latitud = 21.6736,
                         longitud = -103.344
                     )
                 )

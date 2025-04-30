@@ -38,6 +38,8 @@ import kotlinx.coroutines.flow.Flow
 import androidx.compose.foundation.layout.Spacer
 
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 
 import androidx.compose.material3.DropdownMenuItem
 
@@ -61,6 +63,7 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
 import androidx.compose.runtime.setValue
+import com.example.actividad_12_mapas.Nav.Directorio
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import com.google.maps.android.compose.MapType
@@ -149,6 +152,10 @@ fun Body_Map(navController: NavHostController, appContainer: AppContainer) {
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {navController.navigate(Directorio.menuApp)}) {
+            Text("Regresar al menu")
+        }
+        Spacer(modifier = Modifier.height(16.dp))
         ExposedDropdownMenuBox(
             expanded = expanded,
             onExpandedChange = { expanded = !expanded }
@@ -216,6 +223,8 @@ fun Body_Map(navController: NavHostController, appContainer: AppContainer) {
 
 
         }
+
+
     }
 }
 
