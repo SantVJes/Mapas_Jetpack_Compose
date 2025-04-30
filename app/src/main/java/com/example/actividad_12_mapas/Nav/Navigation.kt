@@ -7,7 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.actividad_12_mapas.Data_base.AppContainer
 import com.example.actividad_12_mapas.Screens.Inicio_App
-import com.example.actividad_12_mapas.Screens.menu_App
+import com.example.actividad_12_mapas.Screens.Menu_App
+import com.example.actividad_12_mapas.Screens.rigistrar_Proveedor
 
 
 //Fusion para controlar la navegacion entre pantallas de la App
@@ -23,7 +24,10 @@ fun AppNavigation(appContainer: AppContainer){
             }
 
         composable(Directorio.menuApp){
-            menu_App(navController, appContainer)
+            Menu_App(navController, appContainer)
+        }
+        composable(Directorio.registroApp){
+            rigistrar_Proveedor(navController, appContainer)
         }
 
 

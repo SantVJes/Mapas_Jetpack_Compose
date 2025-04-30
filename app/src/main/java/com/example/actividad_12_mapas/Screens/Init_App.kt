@@ -59,6 +59,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 import com.example.actividad_12_mapas.Data_base.AppContainer
+import com.example.actividad_12_mapas.Nav.Directorio
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executor
@@ -113,6 +114,7 @@ fun Body_Inicio(appContainer: AppContainer, navController: NavHostController) {
                     "succeeded"
                     ,Toast.LENGTH_LONG
                 ).show()
+                navController.navigate(Directorio.menuApp)
             }
 
             override fun onAuthenticationFailed() {
