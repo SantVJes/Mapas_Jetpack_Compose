@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.example.actividad_12_mapas.Screens
 
@@ -130,7 +130,7 @@ fun Body_menu(navController: NavHostController, appContainer: AppContainer){
             icon = Icons.Filled.Home,
             onClick = {
                 // Navigate to the map screen
-               // navController.navigate("map_screen")
+              navController.navigate(Directorio.mapApp)
             }
         )
     }

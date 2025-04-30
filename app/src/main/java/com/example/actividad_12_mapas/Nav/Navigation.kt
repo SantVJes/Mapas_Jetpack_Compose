@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.actividad_12_mapas.Data_base.AppContainer
 import com.example.actividad_12_mapas.Screens.Inicio_App
+import com.example.actividad_12_mapas.Screens.Map_App
 import com.example.actividad_12_mapas.Screens.Menu_App
 import com.example.actividad_12_mapas.Screens.rigistrar_Proveedor
 
@@ -28,6 +29,9 @@ fun AppNavigation(appContainer: AppContainer){
         }
         composable(Directorio.registroApp){
             rigistrar_Proveedor(navController, appContainer)
+        }
+        composable(Directorio.mapApp){
+            Map_App(navController, appContainer)
         }
 
 
